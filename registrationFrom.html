@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <title>Registration user example</title>
+        <script>
+            var state =["select state ","Madhya Pradesh","Uttar Pradesh"];
+            function bodyload()
+            {
+                lstState=document.getElementById("lstState");
+                for(var i=0;i<state.length;i++)
+                {
+                    var opt = document.createElement("option");
+                    opt.text=state[i];
+                    opt.value=state[i];
+                    lstState.appendChild(opt);
+                }
+            }
+            var MP=["Gwalior","Morena"];
+            var UP=["Agra","Noida"];
+             
+            function SelectState()
+            {
+               
+             lstCity = document.getElementById("lstCity");   
+              switch(lstState.value)
+            
+              {
+                  case "Madhya Pradesh":
+                  lstCity.innerHTML="";
+                 for(var i=0;i<MP.length;i++)
+                 {
+                     var opt=document.createElement("option");
+                     opt.text=MP[i];
+                     opt.value=MP[i];
+                     lstCity.appendChild(opt);
+                 }
+                break;
+                case "Uttar Pradesh":
+                lstCity.innerHTML="";
+                 for(var i=0;i<UP.length;i++)
+                 {
+                     var opt=document.createElement("option");
+                     opt.text=UP[i];
+                     opt.value=UP[i];
+                     lstCity.appendChild(opt);
+                 }
+                break;
+              }
+               
+             }
+           
+        function submitBday() {
+            var Q4A = "Your birthday is: ";
+            var Bdate = document.getElementById('bday').value;
+            var Bday = +new Date(Bdate);
+            Q4A += Bdate + " year " + ~~ ((Date.now() - Bday) / (31557600000));
+            var theBday = document.getElementById('result');
+            theBday.innerHTML = Q4A;
+        }
+        function ChangeCase()
+    {
+        var txtName= document.getElementById("fname").value;
+        document.getElementById("fname").value=txtName.toUpperCase();
+        var txtName= document.getElementById("mname").value;
+        document.getElementById("mname").value=txtName.toUpperCase();
+        var txtName= document.getElementById("lname").value;
+        document.getElementById("lname").value=txtName.toUpperCase();
+       // document.getElementById("msg").innerHTML="Hello ! " + txtName.fontcolor('green');
+    }
+    function addressFunction()
+{
+  if (document.getElementById('same').checked)
+  {
+             document.getElementById('lstState1').value=document.
+             getElementById('lstState').value;
+             document.getElementById('lstCity2').value=document.
+             getElementById('lstCity').value
+             document.getElementById('pincode3').value=document.
+             getElementById('pincode').value
+             document.getElementById('Address4').value=document.
+             getElementById('Address').value
+              }
+     
+               else
+                   {
+    
+                       document.getElementById('lstState1').value="";
+                       document.getElementById('lstCity2').value="";
+                       document.getElementById('pincode3').value="";
+                       document.getElementById('Address4').value="";
+                     }
+                   }
+    </script>
+    </head>
+</html>
+<body onload="bodyload()">
+                  <table cellpadding="2" width="20%"  align="center" cellspacing="2">   
+                     <tr>
+                         <td>First Name</td>
+                         <td><input type="text" id="fname"onkeyup="ChangeCase()"></td>
+                    </tr>
+                    <tr>
+                        <td>Middle Name</td>
+                        <td><input type="text" id="mname"onkeyup="ChangeCase()"></td>
+                    </tr>
+                     <tr>
+                        <td>Last Name</td>
+                         <td><input type="text"id="lname"onkeyup="ChangeCase()"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email"id="ename"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td><input type="radio" name="gender" value="Male" id="male" checked>male
+                            <input type="radio" name="gender" value="Female" id="female">Female</td>
+                    </tr>
+                    <tr>
+                       <td>Date</td>
+                       <td><input type="date" name="bday" id="bday" onchange="submitBday()">
+                        <div id="result"></div>
+                    </td>
+                    </tr>
+                    <fieldset>
+                    <tr>
+                        <td>State</td>
+                        <td>
+                                <select id="lstState" onchange="SelectState()"> </select>
+                            </td>
+                     </td>
+                     </tr>
+                         <tr>
+                            <td>city</td>
+                            <td>
+                            <select id="lstCity" onchange="SelectCity()"> </select>
+                            </td>
+                            </td>
+                         </tr>
+                         <tr>
+                             <td>Pin Code</td>
+                            <td><input type ="text" id="pincode"></td> 
+                         </tr>
+                         <tr>
+                             <td>Address</td>
+                           <td><textarea id="Address"></textarea></td>  
+                         </tr>
+                         <tr>
+                             <td><input type="checkbox" id="same" name="same" onchange= "addressFunction()"></td>
+                             <td>your address and corresponde are same </td>
+                         </tr>
+                         <td>State</td>
+                         <td>
+                                 <input type="text" id="lstState1"> </select>
+                             </td>
+                      </td>
+                      </tr>
+                          <tr>
+                             <td>city</td>
+                             <td>
+                             <input type="text" id="lstCity2" > 
+                             </td>
+                             </td>
+                          </tr>
+                          <tr>
+                              <td>Pin Code</td>
+                             <td><input type ="text" id="pincode3"></td> 
+                          </tr>
+                          <tr>
+                              <td>Address</td>
+                            <td><textarea id="Address4"></textarea></td>  
+                          </tr>
+                         
+                       <tr> 
+                        <td><input type="button" value="submit"></td>
+                       </tr>
+                                                   
+                            
+                       
+                  
+</table>
+
+</body>
+</html>
